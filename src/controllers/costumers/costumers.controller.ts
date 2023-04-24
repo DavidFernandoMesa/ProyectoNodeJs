@@ -8,6 +8,8 @@ export class CostumersController {
     @Query('limit') limit = 50,
     @Query('offset') offset = 10,
   ) {
-    return `costumers ID: ${costumersId} limit: ${limit} offset ${offset}`;
+    return {
+      message: `costumers ID: ${costumersId} limit: ${limit} offset ${offset}`,
+    };
   }
 }

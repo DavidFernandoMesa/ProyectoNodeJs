@@ -4,6 +4,8 @@ import { Controller, Get, Query, Param } from '@nestjs/common';
 export class BrandsController {
   @Get('/:brandId/')
   getBrand(@Param('brandId') brandId: number) {
-    return `brand ${brandId}`;
+    return {
+      message: `brand ${brandId}`,
+    };
   }
 }
