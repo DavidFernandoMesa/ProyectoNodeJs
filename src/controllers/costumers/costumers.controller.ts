@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query, Body, Post } from '@nestjs/common';
 
 @Controller('costumers')
 export class CostumersController {
@@ -10,6 +10,14 @@ export class CostumersController {
   ) {
     return {
       message: `costumers ID: ${costumersId} limit: ${limit} offset ${offset}`,
+    };
+  }
+
+  @Post()
+  create(@Body() costumers: any) {
+    return {
+      message: 'Creacion de costumers',
+      costumers,
     };
   }
 }

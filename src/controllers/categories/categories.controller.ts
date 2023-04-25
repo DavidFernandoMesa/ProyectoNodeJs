@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body } from '@nestjs/common';
 
 @Controller('categories')
 export class CategoriesController {
@@ -9,6 +9,14 @@ export class CategoriesController {
   ) {
     return {
       message: `Product ${productId} AND ${categoryId}`,
+    };
+  }
+
+  @Post()
+  create(@Body() categories: any) {
+    return {
+      message: 'Creacion de categorias',
+      categories,
     };
   }
 }
