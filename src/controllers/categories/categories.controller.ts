@@ -6,13 +6,14 @@ import {
   Body,
   Put,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 
 @Controller('categories')
 export class CategoriesController {
   @Get('/:categoryId/products/:productId')
   getCategory(
-    @Param('categoryId') categoryId: string,
+    @Param('categoryId', ParseIntPipe) categoryId: string,
     @Param('productId') productId: string,
   ) {
     return {
@@ -29,14 +30,14 @@ export class CategoriesController {
   }
 
   @Delete('id')
-  delete(@Param('id') id: number) {
+  delete(@Param('id', ParseIntPipe) id: number) {
     return {
       id,
     };
   }
 
   @Put('id')
-  update(@Param('id') id: number, @Body() categories: any) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() categories: any) {
     return {
       id,
       categories,

@@ -7,13 +7,14 @@ import {
   Query,
   Put,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 
 @Controller('orders')
 export class OrdersController {
   @Get('/:orderId/')
   getOrder(
-    @Param('orderId') orderId: number,
+    @Param('orderId', ParseIntPipe) orderId: number,
     @Query('limit') limit = 100,
     @Query('offset') offset = 50,
   ) {
@@ -31,7 +32,7 @@ export class OrdersController {
   }
 
   @Put(':id')
-  update(@Param('id') id: number, @Body() orders: any) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() orders: any) {
     return {
       id,
       orders,
@@ -39,7 +40,7 @@ export class OrdersController {
   }
 
   @Delete('id')
-  delete(@Param('id') id: number) {
+  delete(@Param('id', ParseIntPipe) id: number) {
     return {
       id,
     };

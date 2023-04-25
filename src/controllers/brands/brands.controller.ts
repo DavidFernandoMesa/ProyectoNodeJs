@@ -6,12 +6,13 @@ import {
   Body,
   Put,
   Delete,
+  ParseIntPipe,
 } from '@nestjs/common';
 
 @Controller('brands')
 export class BrandsController {
   @Get('/:brandId/')
-  getBrand(@Param('brandId') brandId: number) {
+  getBrand(@Param('brandId', ParseIntPipe) brandId: number) {
     return {
       message: `brand ${brandId}`,
     };
@@ -26,7 +27,7 @@ export class BrandsController {
   }
 
   @Put('id')
-  update(@Param('id') id: number, @Body() brands: any) {
+  update(@Param('id', ParseIntPipe) id: number, @Body() brands: any) {
     return {
       id,
       brands,
@@ -34,7 +35,7 @@ export class BrandsController {
   }
 
   @Delete('id')
-  delete(@Param('id') id: number) {
+  delete(@Param('id', ParseIntPipe) id: number) {
     return {
       id,
     };
