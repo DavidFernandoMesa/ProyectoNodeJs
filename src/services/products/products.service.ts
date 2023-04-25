@@ -33,20 +33,13 @@ export class ProductsService {
     return newProduct;
   }
 
-  update(id: number, payload) {
+  update(id: number, payload: any) {
     const found = this.findOne(id);
-    let message: '';
     if (found) {
       const index = this.products.findIndex((item) => item.id === id);
-      this.products[index] = {
-        id: id,
-        ...payload,
-      };
-      message: 'successful upgrade';
-    } else {
-      message: 'Product not found';
+      this.products[index] = payload;
+      return this.products[index];
     }
-    return message;
   }
 
   delete(id: number) {

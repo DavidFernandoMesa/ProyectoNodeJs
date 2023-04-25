@@ -29,10 +29,7 @@ export class ProductsController {
 
   @Get('/:productId')
   @HttpCode(HttpStatus.ACCEPTED)
-  getOne(
-    @Res() response: Response,
-    @Param('productId', ParseIntPipe) productId: number,
-  ) {
+  getOne(@Param('productId', ParseIntPipe) productId: number) {
     /*response.status(200).send({
       message: `Product ${productId}`,
     });*/
