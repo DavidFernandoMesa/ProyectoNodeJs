@@ -9,8 +9,8 @@ export class UsersService {
   private users: User[] = [
     {
       id: 1,
-      email: 'correo@mail.com',
-      password: '12345',
+      email: 'david.mesa@gmail.com',
+      password: '42589',
       role: 'admin',
     },
   ];
