@@ -1,17 +1,17 @@
 const myName = 'David Fernando';
-const myEge = 12;
+const myAge = 19;
 const suma = (a: number, b: number) => {
   return a + b;
 };
-suma(23, 40);
+suma(845, 542);
 
 class Persona {
   constructor(private age: number, private name: string) {}
 
   getSummary() {
-    return `I'm ${this.name} and I'm ${this.age}`;
+    return `my name is ${this.name}, ${this.age}`;
   }
 }
 
-const david = new Persona(19, 'David Fernando Mesa Arias');
-david.getSummary();
+const nicolas = new Persona(15, 'nicolas');
+nicolas.getSummary();
